@@ -1,6 +1,8 @@
+// Global Variables
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -9,6 +11,229 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+
+let teamArr = [];
+
+// Functions
+const startPrompt = () => {
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "addTeam",
+            message: "Which type of team member would you like to add?",
+            choices: [
+                "Manager",
+                "Engineer",
+                "Intern",
+                "I don't want to add any more members."
+            ]
+        }
+    ])
+    .then(function(data){
+        switch (data.addTeam) {
+            case "Add Manager":
+                managerPrompt();
+                break;
+            case "Add Engineer":
+                engineerPrompt();
+                break;
+            case "Add Intern":
+                internPrompt();
+                break;
+            case "My team is complete":
+                completeTeam();
+                break;
+        }
+    });
+}
+
+const managerPrompt = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: "What is your manager's name?",
+            validate: function (input) {
+                if (input.length < 1) {
+                    return console.log("Please provide a valid manager name.");
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "What is your manager's ID?",
+            validate: function (input) {
+                if (input.length < 1) {
+                    return console.log("Please provide a valid manager ID.");
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is your manager's email?",
+            validate: function (input) {
+                if (input.length < 1) {
+                    return console.log("Please provide a valid manager email.");
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'office',
+            message: "What is your manager's office number?",
+            validate: function (input) {
+                if (input.length < 1) {
+                    return console.log("Please provide a valid office number.");
+                }
+                return true;
+            }
+        }
+    ])
+    .then(function(data){
+        // Stores the data from the inquirer
+        const name = data.name;
+        const id = data.id;
+        const email = data.email;
+        const office = data.office;
+        // Pushes into an array
+        const newMember = new Manager(name, id, email, office);
+        teamArr.push(newMember);
+        // Goes back to the starting prompt
+        startPrompt();
+    });
+}
+
+const engineerPrompt = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: "What is the engineer's name?",
+            validate: function (input) {
+                if (input.length < 1) {
+                    return console.log("Please provide a valid name.");
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "What is the engineer's ID?",
+            validate: function (input) {
+                if (input.length < 1) {
+                    return console.log("Please provide a valid ID.");
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is the engineer's email?",
+            validate: function (input) {
+                if (input.length < 1) {
+                    return console.log("Please provide a valid email.");
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: "What is the engineer's GitHub username",
+            validate: function (input) {
+                if (input.length < 1) {
+                    return console.log("Please provide a valid username.");
+                }
+                return true;
+            }
+        }
+    ])
+    .then(function(data){
+        // Stores the data from the inquirer
+        const name = data.name;
+        const id = data.id;
+        const email = data.email;
+        const github = data.github;
+        // Pushes into an array
+        const newMember = new Engineer(name, id, email, github);
+        teamArr.push(newMember);
+        // Goes back to the starting prompt
+        startPrompt();
+    });
+}
+
+const internPrompt = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: "What is the intern's name?",
+            validate: function (input) {
+                if (input.length < 1) {
+                    return console.log("Please provide a valid name.");
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "What is the intern's ID?",
+            validate: function (input) {
+                if (input.length < 1) {
+                    return console.log("Please provide a valid ID.");
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is the intern's email?",
+            validate: function (input) {
+                if (input.length < 1) {
+                    return console.log("Please provide a valid email.");
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: "What is the intern's school name",
+            validate: function (input) {
+                if (input.length < 1) {
+                    return console.log("Please provide a valid school name.");
+                }
+                return true;
+            }
+        }
+    ])
+    .then(function(data){
+        // Stores the data from the inquirer
+        const name = data.name;
+        const id = data.id;
+        const email = data.email;
+        const school = data.school;
+        // Pushes into an array
+        const newMember = new Intern(name, id, email, school);
+        teamArr.push(newMember);
+        // Goes back to the starting prompt
+        startPrompt();
+    });
+}
+
+
+
+// Calling the Functions
+startPrompt();
 
 
 // Write code to use inquirer to gather information about the development team members,
