@@ -105,7 +105,7 @@ const managerPrompt = () => {
         },
         {
             type: 'input',
-            name: 'office',
+            name: 'officeNumber',
             message: "What is your manager's office number?",
             validate: function (input) {
                 if (input.length < 1) {
@@ -120,9 +120,9 @@ const managerPrompt = () => {
         const name = data.name;
         const id = data.id;
         const email = data.email;
-        const office = data.office;
+        const officeNumber = data.officeNumber;
         // Pushes into an array
-        const newMember = new Manager(name, id, email, office);
+        const newMember = new Manager(name, id, email, officeNumber);
         teamArr.push(newMember);
         // Goes back to the starting prompt
         startPrompt();
@@ -253,7 +253,8 @@ const internPrompt = () => {
 
 // Completing Teams
 const completeTeam = () => {
-    
+    // console.log(teamArr);
+    fs.writeFileSync("./output/team.html", render(teamArr));
 }
 
 // Calling the Functions
