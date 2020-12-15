@@ -254,10 +254,14 @@ const internPrompt = () => {
 // Completing Teams
 const completeTeam = () => {
     // console.log(teamArr);
-    fs.writeFileSync("./output/team.html", render(teamArr));
+    fs.writeFileSync(outputPath, render(teamArr), err => {
+        if(err) throw err;
+        console.log("Your team employee cards are created in the output folder.");
+    });
+    console.log("Your team employee cards are created in the output folder.");
 }
 
-// Calling the Functions
+// Calling the start prompt
 startPrompt();
 
 // Write code to use inquirer to gather information about the development team members,
