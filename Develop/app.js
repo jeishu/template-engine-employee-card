@@ -14,6 +14,26 @@ const render = require("./lib/htmlRenderer");
 
 let teamArr = [];
 
+// Constructor Function
+const Manager = (name, id, email, office) => {
+    this.name = name;
+    this.id = id;
+    this.email = email;
+    this.office = office;
+}
+const Engineer = (name, id, email, github) => {
+    this.name = name;
+    this.id = id;
+    this.email = email;
+    this.github = github;
+}
+const Intern = (name, id, email, school) => {
+    this.name = name;
+    this.id = id;
+    this.email = email;
+    this.school = school;
+}
+
 // Functions
 const startPrompt = () => {
     inquirer.prompt([
@@ -30,23 +50,24 @@ const startPrompt = () => {
         }
     ])
     .then(function(data){
+        console.log(data);
         switch (data.addTeam) {
-            case "Add Manager":
+            case "Manager":
                 managerPrompt();
                 break;
-            case "Add Engineer":
+            case "Engineer":
                 engineerPrompt();
                 break;
-            case "Add Intern":
+            case "Intern":
                 internPrompt();
                 break;
-            case "My team is complete":
+            default:
                 completeTeam();
-                break;
         }
     });
 }
 
+// Manager
 const managerPrompt = () => {
     inquirer.prompt([
         {
@@ -230,11 +251,8 @@ const internPrompt = () => {
     });
 }
 
-
-
 // Calling the Functions
 startPrompt();
-
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
