@@ -15,24 +15,24 @@ const render = require("./lib/htmlRenderer");
 let teamArr = [];
 
 // Constructor Function
-const Manager = (name, id, email, office) => {
-    this.name = name;
-    this.id = id;
-    this.email = email;
-    this.office = office;
-}
-const Engineer = (name, id, email, github) => {
-    this.name = name;
-    this.id = id;
-    this.email = email;
-    this.github = github;
-}
-const Intern = (name, id, email, school) => {
-    this.name = name;
-    this.id = id;
-    this.email = email;
-    this.school = school;
-}
+// const Manager = (name, id, email, office) => {
+//     this.name = name;
+//     this.id = id;
+//     this.email = email;
+//     this.office = office;
+// }
+// const Engineer = (name, id, email, github) => {
+//     this.name = name;
+//     this.id = id;
+//     this.email = email;
+//     this.github = github;
+// }
+// const Intern = (name, id, email, school) => {
+//     this.name = name;
+//     this.id = id;
+//     this.email = email;
+//     this.school = school;
+// }
 
 // Functions
 const startPrompt = () => {
@@ -249,6 +249,11 @@ const internPrompt = () => {
         // Goes back to the starting prompt
         startPrompt();
     });
+}
+
+// Completing Teams
+const completeTeam = () => {
+    
 }
 
 // Calling the Functions
