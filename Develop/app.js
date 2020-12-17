@@ -19,6 +19,13 @@ let teamArr = [];
 // and to create objects for each team member (using the correct classes as blueprints!)
 
 // Functions
+const validInput = (input, type) => {
+    if (input.length < 1) {
+        return console.log(`Please provide a valid input.`);
+    }
+    return true;
+}
+
 const startPrompt = () => {
     inquirer.prompt([
         {
@@ -61,45 +68,25 @@ const managerPrompt = () => {
             type: 'input',
             name: 'name',
             message: "What is your manager's name?",
-            validate: function (input) {
-                if (input.length < 1) {
-                    return console.log("Please provide a valid manager name.");
-                }
-                return true;
-            }
+            validate: validInput
         },
         {
             type: 'input',
             name: 'id',
             message: "What is your manager's ID?",
-            validate: function (input) {
-                if (input.length < 1) {
-                    return console.log("Please provide a valid manager ID.");
-                }
-                return true;
-            }
+            validate: validInput
         },
         {
             type: 'input',
             name: 'email',
             message: "What is your manager's email?",
-            validate: function (input) {
-                if (input.length < 1) {
-                    return console.log("Please provide a valid manager email.");
-                }
-                return true;
-            }
+            validate: validInput
         },
         {
             type: 'input',
             name: 'officeNumber',
             message: "What is your manager's office number?",
-            validate: function (input) {
-                if (input.length < 1) {
-                    return console.log("Please provide a valid office number.");
-                }
-                return true;
-            }
+            validate: validInput
         }
     ])
     .then(function(data){
@@ -125,45 +112,25 @@ const engineerPrompt = () => {
             type: 'input',
             name: 'name',
             message: "What is the engineer's name?",
-            validate: function (input) {
-                if (input.length < 1) {
-                    return console.log("Please provide a valid name.");
-                }
-                return true;
-            }
+            validate: validInput
         },
         {
             type: 'input',
             name: 'id',
             message: "What is the engineer's ID?",
-            validate: function (input) {
-                if (input.length < 1) {
-                    return console.log("Please provide a valid ID.");
-                }
-                return true;
-            }
+            validate: validInput
         },
         {
             type: 'input',
             name: 'email',
             message: "What is the engineer's email?",
-            validate: function (input) {
-                if (input.length < 1) {
-                    return console.log("Please provide a valid email.");
-                }
-                return true;
-            }
+            validate: validInput
         },
         {
             type: 'input',
             name: 'github',
             message: "What is the engineer's GitHub username",
-            validate: function (input) {
-                if (input.length < 1) {
-                    return console.log("Please provide a valid username.");
-                }
-                return true;
-            }
+            validate: validInput
         }
     ])
     .then(function(data){
@@ -189,45 +156,25 @@ const internPrompt = () => {
             type: 'input',
             name: 'name',
             message: "What is the intern's name?",
-            validate: function (input) {
-                if (input.length < 1) {
-                    return console.log("Please provide a valid name.");
-                }
-                return true;
-            }
+            validate: validInput
         },
         {
             type: 'input',
             name: 'id',
             message: "What is the intern's ID?",
-            validate: function (input) {
-                if (input.length < 1) {
-                    return console.log("Please provide a valid ID.");
-                }
-                return true;
-            }
+            validate: validInput
         },
         {
             type: 'input',
             name: 'email',
             message: "What is the intern's email?",
-            validate: function (input) {
-                if (input.length < 1) {
-                    return console.log("Please provide a valid email.");
-                }
-                return true;
-            }
+            validate: validInput
         },
         {
             type: 'input',
             name: 'school',
             message: "What is the intern's school name",
-            validate: function (input) {
-                if (input.length < 1) {
-                    return console.log("Please provide a valid school name.");
-                }
-                return true;
-            }
+            validate: validInput
         }
     ])
     .then(function(data){
