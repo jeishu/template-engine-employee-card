@@ -90,13 +90,8 @@ const managerPrompt = () => {
         }
     ])
     .then(function(data){
-        // Stores the data from the inquirer
-        const name = data.name;
-        const id = data.id;
-        const email = data.email;
-        const officeNumber = data.officeNumber;
         // Pushes into an array
-        const newMember = new Manager(name, id, email, officeNumber);
+        const newMember = new Manager(data.name, data.id, data.email, data.officeNumber);
         teamArr.push(newMember);
         // Goes back to the starting prompt
         startPrompt();
@@ -134,13 +129,8 @@ const engineerPrompt = () => {
         }
     ])
     .then(function(data){
-        // Stores the data from the inquirer
-        const name = data.name;
-        const id = data.id;
-        const email = data.email;
-        const github = data.github;
         // Pushes into an array
-        const newMember = new Engineer(name, id, email, github);
+        const newMember = new Engineer(data.name, data.id, data.email, data.github);
         teamArr.push(newMember);
         // Goes back to the starting prompt
         startPrompt();
@@ -178,13 +168,8 @@ const internPrompt = () => {
         }
     ])
     .then(function(data){
-        // Stores the data from the inquirer
-        const name = data.name;
-        const id = data.id;
-        const email = data.email;
-        const school = data.school;
         // Pushes into an array
-        const newMember = new Intern(name, id, email, school);
+        const newMember = new Intern(data.name, data.id, data.email, data.school);
         teamArr.push(newMember);
         // Goes back to the starting prompt
         startPrompt();

@@ -10,7 +10,7 @@ This application is intended to help employers create team information cards.
 * [Links](#Links)
 * [Demo](#Demo)
 * [Language](#Language)
-* [Developer-Notes](#Developer-Notes)
+* [Installation](#Installation)
 * [Reference](#Reference)
 * [Contribute/Credits](#Contribute/Credits)
 * [License](#License)
@@ -34,7 +34,7 @@ Main Features:
 * HTML
 * CSS
 
-## Developer-Notes
+## Installation
 
 
 ## Reference
