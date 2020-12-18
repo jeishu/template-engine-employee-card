@@ -27,6 +27,12 @@ Main Features:
 ## Links
 
 * Project Repo: [Repository](https://github.com/jeishu/template-engine-employee-card)
+* Video Demo: [Demo](https://drive.google.com/file/d/1mfFz10yVtOZQ83MxS6gpZH9sWbBG4aZQ/view)
+
+## Demo
+
+![demo](./assets/demo-gif.gif)
+![demo](./assets/demopic.png)
 
 ## Language
 
@@ -36,6 +42,16 @@ Main Features:
 
 ## Installation
 
+Install Node Modules folder
+```
+npm i
+```
+
+Install Dependencies
+```
+npm i inquirer
+npm i jest
+```
 
 ## Reference
 
@@ -53,7 +69,7 @@ These websites aid me in creating this README.
 
 ## Contribute/Credits
 
-
+I used npm inquirers to load up the prompts for the applications.
 
 ## License
 
